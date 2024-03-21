@@ -9,8 +9,8 @@ async function compileViews() {
   const views = await getViews();
   try {
     for (const view of views) {
-      await execProm(`cd "${view}"`);
-      await execProm(`npm run ${build}`);
+      console.log(`Building ${view}`);
+      await execProm(`cd "${view}" && npm run ${build}`);
     }
   } catch (err) {
     console.error(err);
