@@ -1,22 +1,8 @@
-### Building and running your application
+![MB Logo](./assets/images/logo/mb-logo.svg)
 
-When you're ready, start your application by running:
-`docker compose up --build`.
+# MB Applications
 
-Your application will be available at http://localhost:5670.
+This is my personal setup for creating React web applications. The application includes support for React, Typescript, and SASS. It is bundled using Webpack.
 
-### Deploying your application to the cloud
-
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
-
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
-
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
-
-### References
-* [Docker's Node.js guide](https://docs.docker.com/language/nodejs/)
+## Licensing
+This project is licensed under the terms of the [MIT license](./LICENSE.txt).
