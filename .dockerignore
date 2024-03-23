@@ -23,6 +23,7 @@
 **/docker-compose*
 **/compose*
 **/Dockerfile*
+**/node_modules
 **/npm-debug.log
 **/obj
 **/secrets.dev.yaml
@@ -31,6 +32,3 @@
 **/dist
 LICENSE
 README.md
-**/.DS_STORE
-**/node_modules
-**/package-lock.json

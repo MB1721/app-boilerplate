@@ -6,6 +6,7 @@ const dotenv = require('dotenv');
 
 // set up application-level middleware
 const app = express();
+app.use(express.json());
 
 // configure deveopment or production environment
 if (process.argv[2] === 'development') { // use webpack development middleware
@@ -23,10 +24,15 @@ if (process.argv[2] === 'development') { // use webpack development middleware
 const { siteRouter } = require('./routes/index.js');
 
 // set up siteRouter 
-app.use(express.static(siteRouter.static));
-app.use('/', siteRouter.router);
+//app.use(express.static(siteRouter.static));
+
+//app.use('/', siteRouter.router);
+
+app.get('/', (req, res) => {
+  res.json({message: 'yo'});
+});
 
 // configure host variables
-const { PORT: port = 5670, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
+const { PORT: port = 3000, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
 
 app.listen(port, host, () => console.log(`App listening on ${protocol}://${host}:${port}\n`));
