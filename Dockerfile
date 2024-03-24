@@ -11,10 +11,13 @@ ARG NODE_VERSION=21.6.2
 FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
-ENV NODE_ENV production
+ENV NODE_ENV development
 
 
 WORKDIR /usr/src/app
+
+# update npm
+RUN npm install -g npm@10.5.0 
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a cache mount to /root/.npm to speed up subsequent builds.
@@ -22,19 +25,16 @@ WORKDIR /usr/src/app
 # into this layer.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=bind,source=views/site/package.json,target=views/site/package.json \
-    --mount=type=bind,source=views/site/package-lock.json,target=views/site/package-lock.json \
     --mount=type=cache,target=/root/.npm \
-    npm ci --omit=dev
+    npm ci
 
-# Run the application as a non-root user.
-USER node
+# RUN mkdir /usr/src/app/views/site/dist
 
 # Copy the rest of the source files into the image.
 COPY . .
 
 # Expose the port that the application listens on.
-EXPOSE 3000
+EXPOSE 5670
 
 # Run the application.
 CMD npm start

@@ -8,8 +8,9 @@ const dotenv = require('dotenv');
 const app = express();
 app.use(express.json());
 
+const mode = process.argv[2];
 // configure deveopment or production environment
-if (process.argv[2] === 'development') { // use webpack development middleware
+if (mode === 'development') { // use webpack development middleware
   const webpackConfig = require('./views/site/webpack.dev.js');
   const compiler = webpack(webpackConfig);
   const publicPath = webpackConfig.output.publicPath;
@@ -18,19 +19,15 @@ if (process.argv[2] === 'development') { // use webpack development middleware
       publicPath: publicPath,
     })
   );
-} else if (process.argv[2] === 'production') dotenv.config();
+} else if (mode === 'production') dotenv.config();
 
 // require routers
 const { siteRouter } = require('./routes/index.js');
 
 // set up siteRouter 
-//app.use(express.static(siteRouter.static));
+app.use(express.static(siteRouter.static));
 
-//app.use('/', siteRouter.router);
-
-app.get('/', (req, res) => {
-  res.json({message: 'yo'});
-});
+app.use('/', siteRouter.router);
 
 // configure host variables
 const { PORT: port = 5760, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
