@@ -1,10 +1,6 @@
 export default function developerMessage() {
   const instructions = [
     {
-      path: 'package.json',
-      steps: ['Edit "name", "description", and "author"']
-    },
-    {
       path: 'webpack.common.js',
       steps: [
         'Edit module.plugins.HtmlWebpackPlugin.title',
