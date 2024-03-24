@@ -26,7 +26,7 @@ RUN npm install -g npm@10.5.0
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
     --mount=type=cache,target=/root/.npm \
-    npm ci
+    npm ci --omit=dev
 
 # Copy the rest of the source files into the image.
 COPY . .
