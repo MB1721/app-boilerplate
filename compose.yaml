@@ -3,11 +3,11 @@ services:
     build:
       context: .
       target: dev # target stage of the environment
+    env_file:
+      - .env
     ports:
-      - 5670:5670
-    environment:
-      PROTOCOL: http
-      HOST: localhost
-      PORT: 5670
+      - ${PORT}:${PORT}
+    expose:
+      - ${PORT}
     volumes:
       - .:/usr/src/app

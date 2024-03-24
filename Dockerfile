@@ -3,7 +3,6 @@
 ARG NODE_VERSION=21.6.2
 FROM node:${NODE_VERSION}-alpine as base
 WORKDIR /usr/src/app
-EXPOSE 5670
 
 # update npm
 RUN npm install -g npm@10.5.0 
