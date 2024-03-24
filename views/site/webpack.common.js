@@ -51,17 +51,17 @@ module.exports = {
         test: /\.s?[ac]ss$/i,
         use: [
           MiniCssExtractPlugin.loader, // extracts styles into css files
-          path.resolve(__dirname, 'node_modules/css-loader'), // resolves `@import` and `url()`
+          'css-loader', // resolves `@import` and `url()`
           {
             // process css with PostCSS
-            loader: path.resolve(__dirname, 'node_modules/postcss-loader'),
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [ autoprefixer ]
               }
             }
           },
-          path.resolve(__dirname, 'node_modules/sass-loader') // compiles sass/scss to css
+          'sass-loader' // compiles sass/scss to css
         ],
       },
       {
@@ -74,17 +74,17 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: path.resolve(__dirname, 'node_modules/ts-loader'),
+        use: 'ts-loader',
         exclude: /node_modules/,
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
         exclude: /node_modules/,
         use: {
-          loader: path.resolve(__dirname, 'node_modules/babel-loader'),
+          loader: 'babel-loader',
           options: {
             presets: [
-              [path.resolve(__dirname, 'node_modules/@babel/preset-env'), { targets: "defaults" }]
+              ['@babel/preset-env', { targets: "defaults" }]
             ],
             cacheDirectory: true,
           }
