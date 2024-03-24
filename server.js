@@ -1,16 +1,18 @@
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 const dotenv = require('dotenv');
 
 // set up application-level middleware
 const app = express();
 app.use(express.json());
 
-const mode = process.argv[2];
 // configure deveopment or production environment
+const mode = process.argv[2];
+
 if (mode === 'development') { // use webpack development middleware
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+
   const webpackConfig = require('./views/site/webpack.dev.js');
   const compiler = webpack(webpackConfig);
   const publicPath = webpackConfig.output.publicPath;
