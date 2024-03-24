@@ -33,6 +33,6 @@ app.get('/', (req, res) => {
 });
 
 // configure host variables
-const { PORT: port = 3000, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
+const { PORT: port = 5760, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
 
 app.listen(port, host, () => console.log(`App listening on ${protocol}://${host}:${port}\n`));
