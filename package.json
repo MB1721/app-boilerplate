@@ -10,7 +10,7 @@
     "compile-prod": "npm run clean ; webpack --config views/site/webpack.prod.js",
     "rm-dependencies": "node assets/scripts/package/rm-dependencies.js",
     "dev": "nodemon",
-    "start": "npm run prod && node server.js production"
+    "start": "npm run compile-prod && node server.js production"
   },
   "keywords": [],
   "author": "Mason Bennett",
