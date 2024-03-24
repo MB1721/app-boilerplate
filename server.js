@@ -31,6 +31,6 @@ app.use(express.static(siteRouter.static));
 app.use('/', siteRouter.router);
 
 // configure host variables
-const { PORT: port = 5670, HOST: host = 'localhost', PROTOCOL: protocol = 'http' } = process.env;
+const { PROTOCOL: protocol = 'http', HOST: host = 'localhost', PORT: port = 5670 } = process.env;
 
 app.listen(port, () => console.log(`App listening on ${protocol}://${host}:${port}\n`));
