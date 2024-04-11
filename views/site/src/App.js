@@ -1,36 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 import Layout from './components/Layout/Layout';
-import camelCaseFile from '../../../assets/scripts/view-utils/camel-case-context';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Error404 from './pages/Error404';
-import Terms from './pages/Terms';
+import KeyList from '../../../assets/scripts/view-utils/key-list';
+import * as PAGES from './pages';
 
 export default function App() {
-  let pages = [];
-  const pagesDir = require.context('./pages', true, /\.(js|ts|tsx|jsx)$/); // capture javascript files
-  pagesDir.keys().forEach(key => {
-    const { casedFileName } = camelCaseFile(key, ['js', 'ts', 'tsx', 'jsx']);
-    pages.push(casedFileName.toLowerCase());
-  });
-  
-  const ignorePages = /(home|error404|index)/;
-  pages = pages.filter(page => !ignorePages.test(page)); // remove error404 from the pages array
+  const routeKeys = new KeyList();
+  const pageList = Object.keys(PAGES).map(pageName => pageName.toLowerCase());
+  const pagesArr = Object.values(PAGES);
+
+  // create routes from PAGES modules 
+  const routes = (() => {
+    return pagesArr.map(Page => { // access page module
+      const { name } = Page;
+      const newKey = routeKeys.generateKey(name); // generate key
+      return <Route key={newKey} path={name} element={<Page />}/>;
+    }); 
+  })();
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layout pageList={pageList} />}>
+        {routes}
+      </Route>
+    )
+  );
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Layout pages={pages}/>}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="terms" element={<Terms />} />
-          <Route path="*" element={<Error404 />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <RouterProvider router={router} />
   );
 }
