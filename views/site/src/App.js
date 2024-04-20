@@ -16,7 +16,7 @@ export default function App() {
 
   const routes = (() => {
     return pagesArr.map(Page => { // access page module
-      const name = Page.name.toLocaleLowerCase();
+      const name = Page.name.toLowerCase();
       const newKey = routeKeys.generateKey(name); // generate key
       
       switch (name) {
