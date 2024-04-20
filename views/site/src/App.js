@@ -8,7 +8,7 @@ import * as PAGES from './pages';
 export default function App() {
   // filter page navs in layout header
   const pageNavList = Object.keys(PAGES).map(pageName => pageName.toLowerCase())
-    .filter(pageName => !/(error(404)?|home|index|contact)/.test(pageName));
+    .filter(pageName => !/(error(404)?|home|index|contact)/i.test(pageName));
 
   // create routes from PAGES modules
   const pagesArr = Object.values(PAGES); // array of page modules
