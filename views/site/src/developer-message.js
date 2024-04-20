@@ -20,7 +20,11 @@ export default function developerMessage() {
     },
     {
       path: 'src/pages/',
-      steps: ['Add/remove pages necessary for your application']
+      steps: ['Add/remove page files necessary for your application']
+    },
+    {
+      path: 'src/pages/index.js',
+      steps: ['import/export pages']
     },
     {
       path: 'src/index.tsx',
