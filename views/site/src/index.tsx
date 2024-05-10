@@ -6,4 +6,8 @@ import developerMessage from './developer-message.js';
 developerMessage(); // instructions to ready front-end development
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<App/>);
+root.render(
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>
+);
