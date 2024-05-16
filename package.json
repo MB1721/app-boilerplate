@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "clean": "node assets/scripts/package/clean-view.js",
+    "clean": "node assets/util/package/clean-view.js",
     "compile": "npm run clean ; webpack --config views/site/webpack.common.js",
     "compile-dev": "npm run clean ; webpack --config views/site/webpack.dev.js",
     "compile-prod": "npm run clean ; webpack --config views/site/webpack.prod.js",
@@ -17,6 +17,8 @@
   "author": "Mason Bennett",
   "license": "ISC",
   "dependencies": {
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
     "bcrypt": "^5.1.1",
     "bootstrap": "^5.3.3",
     "core-js": "^3.35.1",

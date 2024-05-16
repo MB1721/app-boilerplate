@@ -1,10 +1,16 @@
-export default function developerMessage() {
-  const instructions = [
+interface instruction {
+  path: string,
+  steps: string[]
+}
+
+export default function developerMessage(): void {
+  const instructions: instruction[] = [
     {
       path: 'webpack.common.js',
       steps: [
         'Edit module.plugins.HtmlWebpackPlugin.title',
-        'Edit module.plugins.FaviconsWebpackPlugin.logo']
+        'Edit module.plugins.FaviconsWebpackPlugin.logo'
+      ]
     },
     {
       path: 'src/pages/Home.js',
@@ -36,8 +42,8 @@ export default function developerMessage() {
     }
   ];
 
-  let devInstructions = [];
-  let ordinal = 1;
+  let devInstructions: string[] = [];
+  let ordinal: number = 1;
 
   instructions.forEach(instruction => {
     const { path, steps } = instruction;

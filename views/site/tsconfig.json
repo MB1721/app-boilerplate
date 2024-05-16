@@ -1,14 +1,16 @@
 {
   // Some typical compiler options
   "compilerOptions": {
-    "target": "es2016", // convert to es2016, supported by most browsers as of 2023
+    "target": "es2021", // supported by most browsers as of 2024
+    "lib": ["es2021", "DOM"],
     "baseUrl": ".",
     "paths": {
+      "@util/*": ["src/util/*"],
+      "@components/*": ["src/components/*"],
+      "@pages/*": ["src/pages/*"],
       "@fonts/*": ["src/assets/fonts/*"],
       "@images/*": ["src/assets/images/*"],
-      "@scripts/*": ["src/assets/scripts/*"],
-      "@styles/*": ["src/assets/styles/*"],
-      "@components/*": ["src/components/*"]
+      "@styles/*": ["src/assets/styles/*"]
     },
     "outDir": "./dist/",
     "sourceMap": true, // output inline source maps to compiled JavaScript files
@@ -16,7 +18,7 @@
     "module": "esnext",
     "moduleResolution": "bundler", // support new Node.js module resolution features as they’re added.
     "jsx": "react",
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },

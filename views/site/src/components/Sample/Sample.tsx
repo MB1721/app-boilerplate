@@ -1,6 +1,6 @@
 import React from 'react';
 import cow from '@images/sample/cow.jpg';
-import './Sample.css';
+import './Sample.scss';
 
 function SampleComponent() {
   return (

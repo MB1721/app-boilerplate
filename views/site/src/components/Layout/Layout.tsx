@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
-import './Layout.css';
-import KeyList from '../../../../../assets/scripts/view-utils/key-list';
+import './Layout.scss';
+import KeyList from '@util/react/key-list';
 import brand from '../../../../../assets/images/logo/mb-logo.svg';
 
 export default function Layout({ pageList }) {

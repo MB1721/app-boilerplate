@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
+import './App.scss';
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 import Layout from './components/Layout/Layout';
-import KeyList from '../../../assets/scripts/view-utils/key-list';
+import KeyList from './util/react/key-list';
 import * as PAGES from './pages';
 
 export default function App() {

@@ -1,9 +1,14 @@
-export default function upperCaseAll(str) {
-  const spaceLetter = /\s\w{1}/g;
-  const dashLetter = /-\w{1}/g;
-  const camelCase = /.[A-Z]+/g;
+interface IRegex {
+  pattern: RegExp,
+  replacement: (match: string) => string
+}
 
-  const regex = [
+export default function upperCaseAll(str: string): string {
+  const spaceLetter: RegExp = /\s\w{1}/g;
+  const dashLetter: RegExp = /-\w{1}/g;
+  const camelCase: RegExp = /.[A-Z]+/g;
+
+  const tests: IRegex[] = [
     {
       pattern: dashLetter,
       replacement: match => '-' + match[1].toUpperCase()
@@ -18,11 +23,11 @@ export default function upperCaseAll(str) {
     }
   ];
 
-  let newStr = str.replace(/^\w/, str[0].toUpperCase()); // capitalize first letter
+  let newStr: string = str.replace(/^\w/, str[0].toUpperCase()); // capitalize first letter
 
   // test all regular expressions
-  let transformed = false;
-  regex.forEach(obj => {
+  let transformed: boolean = false;
+  tests.forEach((obj: IRegex) => {
     // console.log(`testing ${newStr} against`, obj);
     const { pattern, replacement } = obj;
     if (pattern.test(newStr) && !transformed) {
