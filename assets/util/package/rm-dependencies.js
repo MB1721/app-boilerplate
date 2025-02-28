@@ -7,7 +7,7 @@ switch (platform) {
     exec("rm -r node_modules package-lock.json");
     break;
   case 'win32':
-    exec("del package-lock.json && rd /Q /S node_modules");
+    exec("del package-lock.json ; rd /Q /S node_modules");
     break;
   default: 
     throw new Error('Unsupported platform');

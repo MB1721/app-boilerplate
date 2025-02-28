@@ -1,8 +1,9 @@
 ![MB Logo](./assets/images/logo/mb-logo.svg)
 
-# MB Applications
+# Web App Boilerplate
 
-Mason Bennett's personal setup for creating React web applications. The application includes support for React, Typescript, and SASS. It is bundled using Webpack.
+My personal setup for creating React web applications. The application includes support for React, Typescript, and SASS. It is bundled using Webpack.
+Development details can be found in the [developer guide](./developer-guide.md).
 
 ## Licensing
 

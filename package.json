@@ -8,7 +8,7 @@
     "compile": "npm run clean ; webpack --config views/site/webpack.common.js",
     "compile-dev": "npm run clean ; webpack --config views/site/webpack.dev.js",
     "compile-prod": "npm run clean ; webpack --config views/site/webpack.prod.js",
-    "rm-dependencies": "node assets/scripts/package/rm-dependencies.js",
+    "rm-dependencies": "node assets/util/package/rm-dependencies.js",
     "build": "npm run rm-dependencies && npm install",
     "dev": "nodemon",
     "start": "node server.js production"
