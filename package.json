@@ -5,12 +5,10 @@
   "main": "server.js",
   "scripts": {
     "clean": "node assets/util/package/clean-view.js",
-    "compile": "npm run clean ; webpack --config views/site/webpack.common.js",
-    "compile-dev": "npm run clean ; webpack --config views/site/webpack.dev.js",
-    "compile-prod": "npm run clean ; webpack --config views/site/webpack.prod.js",
+    "compile": "node assets/util/package/compile.js",
     "rm-dependencies": "node assets/util/package/rm-dependencies.js",
     "build": "npm run rm-dependencies && npm install",
-    "dev": "nodemon",
+    "dev": "node server.js development",
     "start": "node server.js production"
   },
   "keywords": [],

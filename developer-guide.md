@@ -43,11 +43,12 @@ Developers are encouraged to learn the following languages, libraries, and frame
 After creating your cloned repo, run the following commands:
 
 ```bash
-sudo npm run build
-sudo npm run dev
+npm run build
+npm run compile dev
+npm run dev
 ```
 
-`npm run build` will remove all app dependencies and reinstall them in your development space. After all dependencies have been reinstalled, `npm run dev` will compile and start up the app; the terminal will output the app [URL](http://localhost:5670). 
+`npm run build` will remove all app dependencies and reinstall them in your development space. After all dependencies have been reinstalled, `npm run compile dev` will compile the app with webpack, and `npm run dev` will start the app on the configured [URL](http://localhost:5670). 
 
 Navigate to the url. Open the browser console to view further developer instructions. You are now ready to start development.
 
@@ -56,9 +57,9 @@ Navigate to the url. Open the browser console to view further developer instruct
 These steps are important when you want to replicate the finished application on your local machine. Run the following commands:
 
 ```bash
-sudo npm run build
-sudo npm run compile-prod
-sudo npm start
+npm run build
+npm run compile prod
+npm start
 ```
 
-As with the development steps, the first command will rebuild the app. `sudo npm run compile-prod` will use a different compilation setup from the `compile-dev` used under the hood for `npm run dev`. Most importantly, the production command will instruct the [server.js](./server.js) file to use a `.env` file for server config.
+`npm run compile prod` will instruct the [server.js](./server.js) file to use a `.env` file for server config.

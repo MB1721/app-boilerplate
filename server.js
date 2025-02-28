@@ -33,4 +33,5 @@ app.use('/', siteRouter.router);
 // configure host variables
 const { PROTOCOL: protocol = 'http', HOST: host = 'localhost', PORT: port = 5670 } = process.env;
 
-app.listen(port, () => console.log(`App listening on ${protocol}://${host}:${port}\n`));
+const appPath = `${protocol}://${host}:${port}`;
+app.listen(port, () => console.log(`App listening on ${appPath}\n`));
