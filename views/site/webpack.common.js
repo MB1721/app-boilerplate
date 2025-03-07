@@ -61,7 +61,15 @@ module.exports = {
               }
             }
           },
-          'sass-loader' // compiles sass/scss to css
+          { // compiles sass/scss to css,
+              loader: 'sass-loader',
+              options: {
+                  implementation: require('sass'),
+                  sassOptions: {
+                      sourceMap: true
+                  }
+              }
+          }
         ],
       },
       {
