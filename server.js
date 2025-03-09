@@ -16,9 +16,7 @@ if (mode === 'development') { // use webpack development middleware
   const compiler = webpack(webpackConfig);
   const publicPath = webpackConfig.output.publicPath;
   app.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: publicPath,
-    })
+    webpackDevMiddleware(compiler, { publicPath })
   );
 } else if (mode === 'production') dotenv.config();
 
