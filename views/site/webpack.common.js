@@ -106,9 +106,9 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.ejs'], // omit file extensions on import statements
   },
   output: {
-    publicPath: path.resolve(__dirname, '/'), // path for static assets
+    publicPath: './', // path for static assets
     filename: 'assets/scripts/[name].[contenthash].bundle.js',
-    assetModuleFilename: (pathData) => {
+    assetModuleFilename: pathData => {
       const ext = pathData.filename.match(/(\.\w+)$/g)[0];
       let path = 'assets/';
 

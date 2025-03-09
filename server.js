@@ -30,8 +30,18 @@ app.use(express.static(siteRouter.static));
 
 app.use('/', siteRouter.router);
 
-// configure host variables
-const { PROTOCOL: protocol = 'http', HOST: host = 'localhost', PORT: port = 5670 } = process.env;
+// configure server environment variables
+const { PROTOCOL: protocol = 'http', HOST: host = 'localhost' } = process.env;
+let { PORT: port = 5670 } = process.env;
 
-const appPath = `${protocol}://${host}:${port}`;
-app.listen(port, () => console.log(`App listening on ${appPath}\n`));
+const server = app.listen(port, () => console.log(`App listening on ${protocol}://${host}:${port}\n`));
+
+server.on('error', e => {
+  if (e.code === 'EADDRINUSE') {
+    console.error(`Address in use, trying new port ${++port}`);
+    setTimeout(() => {
+      server.close();
+      server.listen(port, host);
+    }, 1000);
+  }
+})
