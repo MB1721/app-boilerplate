@@ -13,8 +13,8 @@ export default function developerMessage(): void {
       ]
     },
     {
-      path: 'src/pages/Home.js',
-      steps: ['Delete Ln 3 and Ln 8']
+      path: 'src/pages/Home.tsx',
+      steps: ["Delete: `import HomeComponent from '../components/HomeComponent/HomeComponent';`\n\tand `<HomeComponent/>`"]
     },
     {
       path: 'src/components/',
@@ -29,15 +29,15 @@ export default function developerMessage(): void {
       steps: ['Add/remove page files necessary for your application']
     },
     {
-      path: 'src/pages/index.js',
-      steps: ['import/export pages']
+      path: 'src/pages/index.tsx',
+      steps: ['import/export pages added in the prvious step']
     },
     {
       path: 'src/index.tsx',
-      steps: ['Delete Ln 5 and Ln 6']
+      steps: ["Delete \n\n\t```\n\timport developerMessage from './developer-message';\n\tdeveloperMessage(); // instructions to ready front-end development\n\t```"]
     },
     {
-      path: 'src/developer-message.js',
+      path: 'src/developer-message.ts',
       steps: ['Delete this file']
     }
   ];
